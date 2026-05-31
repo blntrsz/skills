@@ -28,15 +28,12 @@ Do **not** publish to an issue tracker. Do **not** apply labels. Create local ma
    - Each issue should deliver a narrow but complete end-to-end path through the affected product or system behavior.
    - A completed slice must be demoable, testable, or verifiable on its own.
    - Prefer many thin slices over a few thick slices.
-   - Slices may be `HITL` or `AFK`: `HITL` requires human interaction, review, or a decision; `AFK` can be implemented and merged without human interaction. Prefer `AFK` where possible.
+   - Each issue should be ready for implementation when its acceptance criteria, validation seam, and blockers are clear. If a decision is still needed, state the exact decision required in `Blocked By` or `Open Questions`.
 
-4. **Review the breakdown**
-   - Present the proposed breakdown as a numbered list before writing files.
-   - For each slice, show title, type, blockers, and covered PRD stories or BDD scenarios.
-   - Ask whether the granularity, dependencies, and HITL/AFK classifications are correct.
-   - Iterate until the user approves, unless the user explicitly asks to skip review.
-
-5. **Create local issues**
+4. **Create local issues**
+   - If the source documents are clear, write the issue files without a separate approval round.
+   - Ask one focused question before writing only when slice granularity, dependencies, blockers, or the implementation seam are materially ambiguous.
+   - If the user explicitly asks to review the breakdown first, present a numbered list with title, blockers, and covered PRD stories or BDD scenarios before writing files.
    - Create one markdown file per approved slice under `docs/initiatives/<initiative_name>/issues/` unless the user specifies another directory.
    - Use dependency order in filenames so blockers come first.
    - Use stable, readable filenames such as `0001-short-kebab-title.md`.
@@ -47,9 +44,6 @@ Do **not** publish to an issue tracker. Do **not** apply labels. Create local ma
 
 ```md
 # <Issue Title>
-
-## Type
-AFK | HITL
 
 ## Parent Documents
 - PRD: <path>
@@ -76,8 +70,21 @@ Avoid stale details such as exact file paths or large code snippets. Include a c
 ## Blocked By
 - None - can start immediately
 
+## Implementation Evidence
+- Commit/PR/diff: <filled during implementation or validation>
+- Notes: <what changed or deliberately did not change>
+
+## Verification Evidence
+- <commands, manual checks, or validation report links filled during validation>
+
+## Review Evidence
+- <review doc path or summary filled during review>
+
+## Open Questions
+- None
+
 ## Notes
-- Include relevant constraints, assumptions, risks, or open questions.
+- Include relevant constraints, assumptions, risks, or doc-drift notes.
 ```
 
 ## Guardrails
@@ -86,4 +93,4 @@ Avoid stale details such as exact file paths or large code snippets. Include a c
 - Do not apply labels, triage states, milestones, or assignees.
 - Do not create horizontal layer-only issues such as "add schema" or "build UI" unless that is the smallest independently verifiable slice.
 - Do not modify parent documents unless the user asks.
-- Do not invent missing PRD, RFC, or design decisions; record gaps as notes or HITL issues.
+- Do not invent missing PRD, RFC, or design decisions; record gaps as blockers, open questions, or notes.

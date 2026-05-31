@@ -28,6 +28,8 @@ Use this skill when feedback appears in any of these forms:
    Each bullet should say: when this applies, what to do next time, and a concrete example or refactor opportunity when useful.
 
 3. **Store the lesson explicitly**
+   Learnings produced by the work should be committed with the same PR whenever practical, not left as chat-only memory or postponed until after merge.
+
    Produce the first possible durable output in this order:
    - **Lint rule**: add or update a project lint rule when the lesson can be enforced by the existing linter or formatter.
    - **ast-grep rule**: add or update an ast-grep rule when the lesson is structural code guidance that lint cannot easily express.

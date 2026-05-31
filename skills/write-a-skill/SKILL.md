@@ -115,3 +115,4 @@ After drafting, verify:
 - [ ] Consistent terminology
 - [ ] Concrete examples included
 - [ ] References one level deep
+- [ ] `python3 scripts/validate-skills.py` passes when working in this repository

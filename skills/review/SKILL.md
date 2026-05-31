@@ -1,6 +1,6 @@
 ---
 name: review
-description: Run an extremely strict code-quality review of a diff, PR, branch, or selected files with prioritized findings. Use when the user asks to review code, review a PR, audit current changes, or produce docs/initiatives/<initiative_name>/REVIEW.md for local findings.
+description: Run an extremely strict code-quality review of a diff, PR, branch, issue slice, or selected files with prioritized findings. Use when the user asks to review code, review a PR, audit current changes, or produce initiative review findings.
 ---
 
 # Review
@@ -10,15 +10,15 @@ Perform a strict maintainability-first code review. Working behavior is not enou
 ## Review target
 
 - For local review, default to the current diff against the base branch or merge-base when discoverable.
-- If the user names files, a branch, a commit, or a PR, review that target instead.
+- If the user names files, a branch, a commit, an issue file, or a PR, review that target instead.
 - Read surrounding code for context, but do not comment on unrelated pre-existing issues unless the change worsens them.
 - For PR-style review, anchor findings to exact `file:line` where possible. For cross-cutting issues, use the best representative anchor and mention related files.
-- For local review, overwrite `docs/initiatives/<initiative_name>/REVIEW.md` with the findings. Infer `<initiative_name>` from the current branch, initiative docs, or user request when obvious; ask if ambiguous.
+- For local initiative review, write findings to `docs/initiatives/<initiative_name>/REVIEW.md` as the current rollup. If reviewing one named issue/slice, write or update `docs/initiatives/<initiative_name>/reviews/<issue-slug>.md` and mention whether the rollup should change. Infer `<initiative_name>` from the current branch, initiative docs, or user request when obvious; ask if ambiguous.
 
 ## Hard guardrails
 
 - Read-only review: do not edit source files as part of review.
-- Do not run tests, lint, typecheck, formatters, builds, package installs, or other verification commands. Assume the author has already verified correctness.
+- Do not run tests, lint, typecheck, formatters, builds, package installs, or other verification commands. Assume verification is handled by the author, TDD workflow, or CI; `validate-initiative` only checks doc drift.
 - Do not auto-fix anything.
 - Do not flood the review with cosmetic nits. Prefer fewer, high-conviction, actionable comments.
 - Checks line should say: `Checks not run by design.`
@@ -71,7 +71,7 @@ Use exactly these priorities:
 
 ## Output format
 
-For PR-style review, output review comments only:
+For PR-style review or chat-only review, output review comments only:
 
 ```md
 ## Summary
@@ -96,7 +96,16 @@ For PR-style review, output review comments only:
 Checks not run by design.
 ```
 
-For local review, overwrite `docs/initiatives/<initiative_name>/REVIEW.md` using the same format, with a short header naming the reviewed target/diff. If there are no findings, write/say `No review findings` and include what was inspected plus the checks line.
+For local initiative review, use the same format in `REVIEW.md` or `reviews/<issue-slug>.md`, with a short header naming the reviewed target/diff. If there are no findings, write/say `No review findings` and include what was inspected plus the checks line.
+
+## Review loop
+
+Review is not the final implementation step when findings exist. After review:
+
+- Separate blockers and fixes worth doing now from optional/deferred feedback.
+- Route accepted fixes back to implementation/TDD.
+- Run `validate-initiative` again after fixes.
+- Re-review when fixes were non-trivial or changed the design materially.
 
 ## Learning loop
 

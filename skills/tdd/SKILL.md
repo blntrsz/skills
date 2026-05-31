@@ -46,18 +46,25 @@ RIGHT (vertical):
 
 When exploring the codebase, use `docs/CONTEXT.md` so test names and interface vocabulary match the project's language, and respect ADRs in `docs/adr/` in the area you're touching.
 
-Before writing any code:
+If invoked with a local issue file:
 
-- [ ] Confirm with user what interface changes are needed
-- [ ] Confirm with user which behaviors to test (prioritize)
-- [ ] Identify opportunities for [deep modules](deep-modules.md) (small interface, deep implementation)
-- [ ] Design interfaces for [testability](interface-design.md)
-- [ ] List the behaviors to test (not implementation steps)
-- [ ] Get user approval on the plan
+- [ ] Read the issue file first.
+- [ ] Read its parent PRD, RFC, and DESIGN documents when listed.
+- [ ] Treat the issue's acceptance criteria and validation section as the approved behavior list.
+- [ ] Proceed without another planning interview when the issue is `Ready`, has no blocking open questions, and the public interface is clear enough to test.
+- [ ] Ask one focused clarifying question before coding if requirements are missing, contradictory, blocked, or materially change the public interface beyond the issue.
 
-Ask: "What should the public interface look like? Which behaviors are most important to test?"
+If there is no clear issue file, confirm the minimum plan before writing code:
 
-**You can't test everything.** Confirm with the user exactly which behaviors matter most. Focus testing effort on critical paths and complex logic, not every possible edge case.
+- [ ] Confirm what interface changes are needed.
+- [ ] Confirm which behaviors matter most to test.
+- [ ] Identify opportunities for [deep modules](deep-modules.md) (small interface, deep implementation).
+- [ ] Design interfaces for [testability](interface-design.md).
+- [ ] List the behaviors to test, not implementation steps.
+
+Ask: "What should the public interface look like? Which behaviors are most important to test?" only when the issue or current request does not already answer that.
+
+**You can't test everything.** Focus testing effort on critical paths and complex logic, not every possible edge case.
 
 ### 2. Tracer Bullet
 
@@ -97,6 +104,19 @@ After all tests pass, look for [refactor candidates](refactoring.md):
 - [ ] Run tests after each refactor step
 
 **Never refactor while RED.** Get to GREEN first.
+
+### 5. Handoff
+
+Report:
+
+- Changed files.
+- Behaviors implemented.
+- Tests added or updated.
+- Commands run and results.
+- Issue acceptance criteria completed.
+- Any doc drift, new decisions, or follow-up validation needed.
+
+If working from an issue file, update its implementation evidence or recommend exact updates for validation/review to apply.
 
 ## Checklist Per Cycle
 

@@ -5,7 +5,7 @@ description: Generate an initiative DESIGN at docs/initiatives/<initiative_name>
 
 # To Design Doc
 
-Create `docs/initiatives/<initiative_name>/DESIGN.md` from the initiative `PRD.md`, `RFC.md`, and repository context.
+Create `docs/initiatives/<initiative_name>/DESIGN.md` from the initiative `PRD.md`, `RFC.md`, and repository context. The PRD owns user requirements, the RFC owns the proposed change with tradeoffs and alternatives, and the DESIGN owns how to implement that direction.
 
 Do **not** interview the user by default. Synthesize from the source documents and codebase. Ask only if the design would otherwise depend on a materially ambiguous or risky decision not covered by the PRD or RFC.
 

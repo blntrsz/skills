@@ -7,6 +7,8 @@ description: Turn the current conversation context and codebase understanding in
 
 Create `docs/initiatives/<initiative_name>/RFC.md` from the current conversation context and repository vocabulary.
 
+Use `iterate-rfc` instead when an existing RFC needs to change after comments, new information, design drift, or switching to a different alternative.
+
 Do **not** interview the user by default. Synthesize from what is already known. Ask only if the RFC would otherwise assert a materially ambiguous or risky decision.
 
 ## Workflow
