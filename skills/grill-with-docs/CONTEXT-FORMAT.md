@@ -31,6 +31,8 @@ _Avoid_: Client, buyer, account
 
 ## Repository location
 
-Use one shared glossary at `docs/CONTEXT.md`.
+Default to one shared glossary at `docs/CONTEXT.md`.
 
-Create `docs/CONTEXT.md` lazily when the first project-specific term is resolved. Keep initiative-specific requirements, proposals, and implementation notes out of this file; they belong under `docs/initiatives/<initiative_name>/`.
+If `docs/CONTEXT-MAP.md` exists, follow it to the relevant context-specific `CONTEXT.md`. The map is the canonical routing table for multi-context repositories; do not write terms to the default glossary when the map points that domain language somewhere else.
+
+Create the target `CONTEXT.md` lazily when the first project-specific term for that context is resolved. Keep initiative-specific requirements, proposals, and implementation notes out of glossary files; they belong under `docs/initiatives/<initiative_name>/`.

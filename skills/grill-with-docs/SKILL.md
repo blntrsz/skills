@@ -1,6 +1,6 @@
 ---
 name: grill-with-docs
-description: Grilling session that challenges your plan against the existing domain model, sharpens terminology, and updates documentation (docs/CONTEXT.md, docs/adr/) inline as decisions crystallise. Use when user wants to stress-test a plan against their project's language and documented decisions.
+description: Grilling session that challenges your plan against the existing domain model, sharpens terminology, and updates documentation (CONTEXT.md, ADRs) inline as decisions crystallise. Use when user wants to stress-test a plan against their project's language and documented decisions.
 ---
 
 <what-to-do>
@@ -33,32 +33,31 @@ Most repos have a single context:
 └── src/
 ```
 
-Initiative documents live separately under `docs/initiatives/<initiative_name>/`, while shared language and decisions stay in `docs/`:
+If `docs/CONTEXT-MAP.md` exists, the repo has multiple contexts. The map is the canonical routing table for context-specific glossary and ADR locations:
 
 ```
 /
 ├── docs/
-│   ├── CONTEXT.md                    ← shared product/domain glossary
-│   ├── LEARNINGS.md                  ← durable retrospectives
-│   ├── adr/                          ← shared decisions
-│   └── initiatives/
-│       └── <initiative_name>/
-│           ├── PRD.md
-│           ├── RFC.md
-│           ├── DESIGN.md
-│           ├── issues/
-│           │   └── 0001-issue-title.md
-│           └── REVIEW.md
-└── src/
+│   ├── CONTEXT-MAP.md
+│   ├── adr/                          ← default system-wide decisions
+│   └── domain/
+│       ├── ordering/
+│       │   ├── CONTEXT.md
+│       │   └── docs/adr/             ← ordering-context decisions
+│       └── billing/
+│           ├── CONTEXT.md
+│           └── docs/adr/             ← billing-context decisions
 ```
 
-Create files lazily — only when you have something to write. If no `docs/CONTEXT.md` exists, create it when the first term is resolved. If no `docs/adr/` exists, create it when the first ADR is needed.
+When a map exists, follow it to the relevant context's `CONTEXT.md` and ADR directory. Use `docs/CONTEXT.md` and `docs/adr/` only as the single-context defaults or for system-wide entries not routed elsewhere by the map.
+
+Create files lazily — only when you have something to write. Create the target `CONTEXT.md` when the first term for that context is resolved. Create the target ADR directory when the first ADR for that context is needed.
 
 ## During the session
 
 ### Challenge against the glossary
 
-When the user uses a term that conflicts with the existing language in `docs/CONTEXT.md`, call it out immediately. "Your glossary defines 'cancellation' as X, but you seem to mean Y — which is it?"
+When the user uses a term that conflicts with the existing language in `CONTEXT.md`, call it out immediately. "Your glossary defines 'cancellation' as X, but you seem to mean Y — which is it?"
 
 ### Sharpen fuzzy language
 
@@ -72,11 +71,11 @@ When domain relationships are being discussed, stress-test them with specific sc
 
 When the user states how something works, check whether the code agrees. If you find a contradiction, surface it: "Your code cancels entire Orders, but you just said partial cancellation is possible — which is right?"
 
-### Update docs/CONTEXT.md inline
+### Update CONTEXT.md inline
 
-When a term is resolved, update `docs/CONTEXT.md` right there. Don't batch these up — capture them as they happen. Use the format in [CONTEXT-FORMAT.md](./CONTEXT-FORMAT.md).
+When a term is resolved, update `CONTEXT.md` right there. Don't batch these up — capture them as they happen. Use the format in [CONTEXT-FORMAT.md](./CONTEXT-FORMAT.md).
 
-`docs/CONTEXT.md` should be totally devoid of implementation details. Do not treat `docs/CONTEXT.md` as a spec, a scratch pad, or a repository for implementation decisions. It is a glossary and nothing else.
+`CONTEXT.md` should be totally devoid of implementation details. Do not treat `CONTEXT.md` as a spec, a scratch pad, or a repository for implementation decisions. It is a glossary and nothing else.
 
 ### Offer ADRs sparingly
 
