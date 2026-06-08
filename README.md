@@ -6,17 +6,17 @@ AI workflow skills for the `pi` coding agent. The goal is to move from a fuzzy i
 
 ```mermaid
 flowchart LR
-    grill["/grill-with-docs<br/><small>clarify terms + decisions</small>"] --> spec["/to-spec<br/><small>PRD / TRD / BDD</small>"]
-    spec -. "human design review" .-> specReview["/spec-review<br/><small>decision interview</small>"]
-    specReview -. "changed decisions / open questions" .-> iterate["/iterate-spec<br/><small>resolve feedback + regenerate</small>"]
-    specReview -. "no blocking feedback" .-> issues
-    spec -. "known spec feedback / doc drift" .-> iterate
+    grill["/grill-with-docs"] --> spec["/to-spec"]
+    spec --> issues["/to-issues"]
+    issues --> tdd["/tdd"]
+    tdd --> review["/review"]
+    review --> tdd
+    review --> retro["/retro"]
+    spec --> specReview["/spec-review"]
+    spec --> iterate["/iterate-spec"]
+    specReview --> iterate
+    specReview --> spec
     iterate --> spec
-    spec --> issues["/to-issues<br/><small>vertical slices + approval</small>"]
-    issues --> tdd["/tdd<br/><small>approved slice + red-green-refactor</small>"]
-    tdd --> review["/review<br/><small>standards + spec + correctness + maintainability</small>"]
-    review -- "fix findings" --> tdd
-    review -. "durable lesson" .-> retro["/retro<br/><small>rules + lessons</small>"]
 ```
 
 The image flow is the desired command sequence. In this repo, the boxes map to skills under [`skills/`](./skills/). Use `/spec-review` when you want AI-assisted human review before slicing. Use `/iterate-spec` when specs already have feedback, changed decisions, open questions, or doc drift to resolve.
