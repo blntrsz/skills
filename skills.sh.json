@@ -1,0 +1,39 @@
+{
+  "$schema": "https://skills.sh/schemas/skills.sh.schema.json",
+  "notGrouped": "bottom",
+  "groupings": [
+    {
+      "title": "Clarify",
+      "description": "Skills for reaching shared understanding before writing specs.",
+      "skills": [
+        "grill-me",
+        "grill-with-docs"
+      ]
+    },
+    {
+      "title": "Spec",
+      "description": "Skills for generating, reviewing, and iterating PRD/TRD/BDD specs.",
+      "skills": [
+        "to-spec",
+        "spec-review",
+        "iterate-spec"
+      ]
+    },
+    {
+      "title": "Implement",
+      "description": "Skills for slicing work and test-driven development.",
+      "skills": [
+        "to-issues",
+        "tdd"
+      ]
+    },
+    {
+      "title": "Review & Learn",
+      "description": "Skills for rigorous review and turning feedback into guardrails.",
+      "skills": [
+        "review",
+        "retro"
+      ]
+    }
+  ]
+}

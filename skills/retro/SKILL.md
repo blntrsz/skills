@@ -1,6 +1,7 @@
 ---
 name: retro
 description: Turns durable feedback from the current conversation, PR comments, or document comments into guardrails: lint rules, ast-grep rules, or docs/LESSONS.md updates. Use when the user asks for a retro or explicitly wants to convert recurring/durable feedback or review comments into rules, guardrails, or lessons.
+license: MIT
 ---
 
 # Retro

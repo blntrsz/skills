@@ -1,6 +1,7 @@
 ---
 name: tdd
 description: Test-driven implementation of one approved vertical slice or accepted review fix using red-green-refactor. Use when implementing a spec-backed issue, fixing a bug with known behavior, addressing review-requested changes through tests/refactors, mentions "red-green-refactor", wants integration tests, or asks for test-first development.
+license: MIT
 ---
 
 # Test-Driven Development

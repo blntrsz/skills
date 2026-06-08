@@ -1,6 +1,7 @@
 ---
 name: review
 description: Reviews current worktree, branch diffs, or PR changes for correctness, spec fit, documented standards, and strict maintainability/code-quality risks. Use when user asks to review current changes, a PR, a branch, "review since X", "code quality audit", or wants harsh/thermonuclear feedback.
+license: MIT
 ---
 
 # Review

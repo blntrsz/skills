@@ -1,6 +1,7 @@
 ---
 name: to-spec
 description: Turn a resolved or clarified plan into PRD, TRD, and/or BDD feature specs. Use when the user asks to capture agreed context as specs; use iterate-spec for feedback on existing specs.
+license: MIT
 ---
 
 This skill takes the current conversation context and codebase understanding and produces the requested spec document(s). It captures resolved context; it is not a second broad interview.

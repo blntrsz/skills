@@ -1,6 +1,7 @@
 ---
 name: iterate-spec
 description: Iterates existing PRD, TRD, and BDD specs from feedback, changed decisions, open questions, or doc drift by running a focused grill-with-docs clarification loop, then regenerating the specs with to-spec. Use when the user mentions /iterate-spec, asks to improve or update specs/docs from feedback, or provides spec-review decisions, review comments, annotations, PR comments, critique, or doc-drift notes about existing PRD/TRD/BDD specs.
+license: MIT
 ---
 
 # Iterate Spec

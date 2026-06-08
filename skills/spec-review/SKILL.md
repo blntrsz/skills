@@ -1,6 +1,7 @@
 ---
 name: spec-review
 description: Runs an AI-assisted human review of existing PRD/TRD/BDD specs by mapping decision areas, challenging one decision at a time, and producing a decision log. Use when specs should be reviewed before slicing, when user asks to review specs interactively, or when design decisions need to be accepted, changed, or left open for later discussion.
+license: MIT
 ---
 
 # Spec Review

@@ -1,6 +1,7 @@
 ---
 name: to-issues
 description: Break PRD/TRD/BDD specs, plans, or approved source context into independently grabbable vertical tracer-bullet issues. Use when the user asks to slice work into issues; iterate until the breakdown is approved before publishing or implementation.
+license: MIT
 ---
 
 Break a plan or spec into independently-grabbable issues using vertical slices (tracer bullets). Each issue is a thin vertical slice that cuts through all relevant integration layers end-to-end, not a horizontal slice of one layer.
